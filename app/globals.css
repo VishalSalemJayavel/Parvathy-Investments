@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0B1D3A;
+  --color-navy-deep: #06101F;
+  --color-navy-mid: #132B4F;
+  --color-gold: #C5A256;
+  --color-gold-light: #D4B978;
+  --color-cream: #F8F6F1;
+  --color-gray-100: #F5F5F7;
+  --color-gray-200: #E8E8EC;
+  --color-gray-400: #9A9AA0;
+  --color-gray-600: #5A5A64;
+  --color-gray-800: #2A2A34;
+  --color-text-dark: #1A1A2E;
+
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-dm-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* scroll-behavior: smooth removed — Lenis handles smooth scrolling */
+}
+
+body {
+  color: #1A1A2E;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1D3A;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A256;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4B978;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+}
+
+.font-body {
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+}
+
+.overline-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C5A256;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+}
+
+/* ── AnimatedPattern orbs ──────────────────────────────────────── */
+.pattern-orb-a {
+  position: absolute;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,162,86,0.10) 0%, transparent 68%);
+  top: -100px; left: -80px;
+  animation: patternOrbA 20s ease-in-out infinite;
+}
+.pattern-orb-b {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,162,86,0.07) 0%, transparent 68%);
+  bottom: -60px; right: -50px;
+  animation: patternOrbB 25s ease-in-out infinite;
+}
+.pattern-orb-c {
+  position: absolute;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(40,90,200,0.06) 0%, transparent 68%);
+  top: 45%; left: 55%;
+  transform: translate(-50%, -50%);
+  animation: patternOrbC 17s ease-in-out infinite;
+}
+@keyframes patternOrbA {
+  0%, 100% { transform: translate(0%, 0%) scale(1); opacity: 0.8; }
+  30%       { transform: translate(8%, -7%) scale(1.12); opacity: 1; }
+  65%       { transform: translate(-6%, 9%) scale(0.92); opacity: 0.7; }
+}
+@keyframes patternOrbB {
+  0%, 100% { transform: translate(0%, 0%) scale(1); opacity: 0.8; }
+  40%       { transform: translate(-9%, 6%) scale(1.1); opacity: 1; }
+  75%       { transform: translate(7%, -9%) scale(0.9); opacity: 0.7; }
+}
+@keyframes patternOrbC {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50%       { transform: translate(-38%, -62%) scale(1.25); opacity: 0.9; }
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #C5A256, #D4B978);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Siri glow orb keyframes ───────────────────────────────────── */
+@keyframes siriDrift1 {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  25%       { transform: translate(4%, -3%) scale(1.05); }
+  50%       { transform: translate(-3%, 4%) scale(0.96); }
+  75%       { transform: translate(2%, 2%) scale(1.03); }
+}
+@keyframes siriDrift2 {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  30%       { transform: translate(-5%, 3%) scale(1.07); }
+  60%       { transform: translate(4%, -4%) scale(0.94); }
+  80%       { transform: translate(-2%, 1%) scale(1.04); }
+}
+@keyframes siriDrift3 {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  40%       { transform: translate(3%, 5%) scale(0.97); }
+  70%       { transform: translate(-4%, -2%) scale(1.06); }
+}
