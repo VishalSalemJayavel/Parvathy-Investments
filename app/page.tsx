@@ -3,7 +3,6 @@ import { Search, Shield, Monitor, Activity } from 'lucide-react';
 import { SectionReveal, StaggerItem } from '@/components/SectionReveal';
 import { Button } from '@/components/Button';
 import { SectionHeader } from '@/components/SectionHeader';
-import { InvestmentCard } from '@/components/InvestmentCard';
 import { InvestmentCarousel } from '@/components/InvestmentCarousel';
 import { WhoWeServeCards } from '@/components/WhoWeServeCards';
 import { PartnerCTA } from '@/components/PartnerCTA';
