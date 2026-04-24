@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { SectionReveal } from './SectionReveal';
 import { SectionHeader } from './SectionHeader';
@@ -14,7 +14,7 @@ const TESTIMONIALS = [
     initials: 'JM',
     stars: 5,
     review:
-      'Working with Parvathy Investment Company has been one of the best financial decisions I have made. Their disciplined approach to capital deployment gave me confidence from day one. The transparency and structured communication set them apart from every other firm I have worked with.',
+      'Their disciplined approach to capital deployment gave me confidence from day one. Transparency and structured communication set them apart from every other firm I have worked with.',
   },
   {
     name: 'Sarah Williams',
@@ -22,7 +22,7 @@ const TESTIMONIALS = [
     initials: 'SW',
     stars: 5,
     review:
-      'I was looking for a long-term investment partner, not just a fund manager. Parvathy genuinely treats your capital as a responsibility. Three years in and my portfolio is exactly where we planned it to be. That kind of consistency is rare.',
+      'Parvathy genuinely treats your capital as a responsibility. Three years in and my portfolio is exactly where we planned it to be. That kind of consistency is rare.',
   },
   {
     name: 'Robert Anderson',
@@ -30,7 +30,7 @@ const TESTIMONIALS = [
     initials: 'RA',
     stars: 5,
     review:
-      'Their EB-5 program guidance was exceptional. The team walked us through every step with complete transparency and professionalism. I felt genuinely informed and protected throughout the entire process.',
+      'Their EB-5 program guidance was exceptional. The team walked us through every step with complete transparency and professionalism. I felt informed and protected throughout.',
   },
   {
     name: 'Jennifer Thompson',
@@ -38,7 +38,7 @@ const TESTIMONIALS = [
     initials: 'JT',
     stars: 5,
     review:
-      'As a high-net-worth investor, I have worked with many firms. Parvathy stands out for their integrity and the quality of structured opportunities they provide. Their evaluation process is rigorous — which is exactly what I want guarding my capital.',
+      'Parvathy stands out for integrity and the quality of structured opportunities they provide. Their evaluation process is rigorous — exactly what I want guarding my capital.',
   },
   {
     name: 'Michael Davis',
@@ -46,7 +46,7 @@ const TESTIMONIALS = [
     initials: 'MD',
     stars: 5,
     review:
-      'The team declined an investment I was excited about — and they were completely right. That kind of disciplined judgment, prioritising my long-term interests above a quick return, earns real and lasting trust.',
+      'The team declined an investment I was excited about — and they were completely right. That kind of disciplined judgment, prioritising long-term outcomes, earns real trust.',
   },
   {
     name: 'Karen Johnson',
@@ -54,7 +54,7 @@ const TESTIMONIALS = [
     initials: 'KJ',
     stars: 5,
     review:
-      'From the first conversation to ongoing quarterly updates, the professionalism has been consistent. My family office has committed additional capital this year because the results have matched every promise made at the start.',
+      'From the first conversation to ongoing updates, the professionalism has been consistent. My family office committed additional capital this year because results matched every promise.',
   },
   {
     name: 'David Carter',
@@ -62,7 +62,7 @@ const TESTIMONIALS = [
     initials: 'DC',
     stars: 5,
     review:
-      'The diversified exposure across real estate and secured credit has performed steadily through a volatile market. I appreciate how clearly they communicate risk alongside opportunity — no sugarcoating, just honest analysis.',
+      'Diversified exposure across real estate and secured credit has performed steadily through volatility. They communicate risk alongside opportunity — no sugarcoating, just honest analysis.',
   },
   {
     name: 'Linda Martinez',
@@ -70,76 +70,68 @@ const TESTIMONIALS = [
     initials: 'LM',
     stars: 5,
     review:
-      'I came to Parvathy as an international investor navigating U.S. investment structures for the first time. They made the process approachable, legally sound, and ultimately very rewarding. I have since referred two close colleagues.',
+      'As an international investor navigating U.S. structures for the first time, they made the process approachable, legally sound, and ultimately very rewarding. I have since referred two colleagues.',
   },
 ];
 
-const DURATION = 5500;
-const EASE = [0.16, 1, 0.3, 1] as const;
+const N = TESTIMONIALS.length;
+const DURATION = 5000;
 
-/* ─── Animated stars — each star pops in on card change ─────────── */
-function AnimatedStars({ count, animKey }: { count: number; animKey: number }) {
+/* ─── Star row ───────────────────────────────────────────────────── */
+function StarRow({ count }: { count: number }) {
   return (
-    <div className="flex gap-1.5">
+    <div className="flex gap-0.5">
       {Array.from({ length: 5 }).map((_, i) => (
-        <motion.span
-          key={`${animKey}-${i}`}
-          initial={{ opacity: 0, scale: 0, rotate: -20 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ delay: i * 0.07, duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <Star
-            size={18}
-            className={i < count ? 'fill-gold text-gold' : 'fill-transparent text-white/20'}
-            strokeWidth={1.5}
-          />
-        </motion.span>
+        <Star
+          key={i}
+          size={13}
+          className={i < count ? 'fill-gold text-gold' : 'fill-transparent text-white/20'}
+          strokeWidth={1.5}
+        />
       ))}
     </div>
   );
 }
 
-/* ─── Card slide variants ────────────────────────────────────────── */
-const cardVariants = {
-  enter: (d: number) => ({
-    x: d > 0 ? 72 : -72,
-    opacity: 0,
-    scale: 0.96,
-    filter: 'blur(4px)',
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    filter: 'blur(0px)',
-  },
-  exit: (d: number) => ({
-    x: d > 0 ? -72 : 72,
-    opacity: 0,
-    scale: 0.96,
-    filter: 'blur(4px)',
-  }),
-};
-
-const cardTransition = { duration: 0.55, ease: EASE };
-
 /* ─── Component ──────────────────────────────────────────────────── */
 export function TestimonialsCarousel() {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [progress, setProgress] = useState(0);
+  const [visible, setVisible] = useState(3);
   const [paused, setPaused] = useState(false);
-  const total = TESTIMONIALS.length;
+  const [progress, setProgress] = useState(0);
+
+  /* Responsive visible card count */
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 768) setVisible(1);
+      else if (window.innerWidth < 1024) setVisible(2);
+      else setVisible(3);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  const maxIndex = Math.max(0, N - visible);
+
+  /* Clamp current when visible changes (e.g. resize) */
+  useEffect(() => {
+    setCurrent((c) => Math.min(c, maxIndex));
+  }, [maxIndex]);
 
   const go = useCallback(
     (dir: number) => {
-      setDirection(dir);
-      setCurrent((c) => (c + dir + total) % total);
+      setCurrent((c) => {
+        const next = c + dir;
+        if (next < 0) return maxIndex;        // wrap backward
+        if (next > maxIndex) return 0;         // wrap forward
+        return next;
+      });
     },
-    [total],
+    [maxIndex],
   );
 
-  /* ── Progress bar + auto-advance ─────────────────────────────── */
+  /* Auto-advance with progress bar */
   useEffect(() => {
     if (paused) return;
     setProgress(0);
@@ -158,171 +150,160 @@ export function TestimonialsCarousel() {
     };
   }, [current, paused, go]);
 
-  const t = TESTIMONIALS[current];
+  /*
+   * Track geometry (same formula regardless of visible count):
+   *   trackWidth  = (N / visible) * 100% of container
+   *   translateX  = -(current * 100 / N)% of track  ← moves exactly 1 card per step
+   */
+  const trackW = (N / visible) * 100;
+  const translateX = -(current * 100) / N;
 
   return (
     <section
-      className="relative bg-navy overflow-hidden py-24 md:py-32"
+      className="py-14 md:py-16 bg-navy relative overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* ── Background decorations ──────────────────────────────── */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Gold ambient glow */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{
-            width: '900px',
-            height: '500px',
-            background: 'radial-gradient(ellipse, rgba(197,162,86,0.07) 0%, transparent 65%)',
-          }}
-        />
-        {/* Top separator */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
-        {/* Bottom separator */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/6 to-transparent" />
-        {/* Giant decorative quote mark */}
-        <div
-          className="absolute -top-4 left-1/2 -translate-x-1/2 font-display leading-none select-none pointer-events-none text-gold"
-          style={{ fontSize: 'clamp(220px, 30vw, 420px)', opacity: 0.035, fontStyle: 'italic' }}
-        >
-          &ldquo;
-        </div>
-      </div>
+      {/* Top separator */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+      {/* Ambient glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        style={{
+          width: '700px',
+          height: '400px',
+          background: 'radial-gradient(ellipse, rgba(197,162,86,0.06) 0%, transparent 65%)',
+        }}
+      />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
-        {/* ── Section header ───────────────────────────────────── */}
-        <SectionReveal className="mb-14 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <SectionReveal className="mb-10 text-center">
           <SectionHeader
             overline="Investor Reviews"
             title="What Our Investors Say"
-            subtitle="Hear from the investors who have trusted us with their capital."
             align="center"
             light
           />
         </SectionReveal>
 
-        {/* ── Card row: arrow — card — arrow ───────────────────── */}
-        <SectionReveal delay={0.15} from="up" className="flex items-center gap-3 md:gap-5">
+        {/* ── Sliding track ──────────────────────────────────────── */}
+        <SectionReveal delay={0.1}>
+          <div className="overflow-hidden -mx-3">
+            <motion.div
+              className="flex items-stretch"
+              animate={{ x: `${translateX}%` }}
+              transition={{ type: 'spring', stiffness: 260, damping: 30, mass: 0.85 }}
+              style={{ width: `${trackW}%` }}
+            >
+              {TESTIMONIALS.map((t, i) => {
+                const isActive = i >= current && i < current + visible;
+                const isFirst = i === current;
+                return (
+                  <div
+                    key={t.name}
+                    style={{ width: `${100 / N}%` }}
+                    className="px-3"
+                  >
+                    <motion.div
+                      animate={{
+                        opacity: isActive ? 1 : 0.45,
+                        scale: isActive ? 1 : 0.97,
+                      }}
+                      transition={{ duration: 0.35 }}
+                      className={`h-full flex flex-col gap-4 rounded-sm p-5 md:p-6 border transition-colors duration-300 ${
+                        isFirst
+                          ? 'bg-navy-mid border-gold/35 shadow-[0_6px_28px_rgba(197,162,86,0.10)]'
+                          : 'bg-navy/70 border-white/7'
+                      }`}
+                    >
+                      {/* Stars */}
+                      <StarRow count={t.stars} />
+
+                      {/* Review */}
+                      <p className="font-body text-sm text-gray-300 leading-relaxed flex-1">
+                        &ldquo;{t.review}&rdquo;
+                      </p>
+
+                      {/* Author */}
+                      <div className="flex items-center gap-3 pt-3 border-t border-white/8">
+                        <div className="w-8 h-8 rounded-full bg-gold/12 border border-gold/30 flex items-center justify-center flex-shrink-0">
+                          <span className="font-display text-xs font-600 text-gold leading-none">
+                            {t.initials}
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-body font-600 text-cream text-xs leading-tight">
+                            {t.name}
+                          </p>
+                          <p className="font-body text-[11px] text-gold/55 mt-0.5">
+                            {t.location}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </div>
+        </SectionReveal>
+
+        {/* ── Controls ───────────────────────────────────────────── */}
+        <div className="mt-8 flex items-center justify-center gap-5">
           {/* Prev */}
           <motion.button
             onClick={() => go(-1)}
-            whileHover={{ scale: 1.1, backgroundColor: 'rgba(197,162,86,1)' }}
-            whileTap={{ scale: 0.92 }}
-            aria-label="Previous review"
-            className="flex-shrink-0 w-11 h-11 rounded-full border border-gold/35 flex items-center justify-center text-gold transition-colors duration-300"
-            style={{ color: '#C5A256' }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Previous"
+            className="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-navy-deep transition-colors duration-250"
           >
-            <ChevronLeft size={20} strokeWidth={2} />
+            <ChevronLeft size={16} strokeWidth={2.5} />
           </motion.button>
 
-          {/* Card */}
-          <div className="flex-1 min-w-0 overflow-hidden rounded-sm">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={current}
-                custom={direction}
-                variants={cardVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={cardTransition}
-                className="bg-navy-mid border border-white/8 rounded-sm px-7 md:px-12 py-9 md:py-12 shadow-[0_20px_60px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.04)]"
-              >
-                {/* Stars */}
-                <AnimatedStars count={t.stars} animKey={current} />
-
-                {/* Review text */}
-                <motion.p
-                  className="font-display text-xl md:text-2xl lg:text-[1.65rem] font-400 italic text-cream leading-relaxed mt-6 mb-9"
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.18, duration: 0.5, ease: 'easeOut' }}
+          {/* Dots + progress bar */}
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex gap-1.5">
+              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  aria-label={`Go to ${i + 1}`}
+                  className="p-0.5"
                 >
-                  &ldquo;{t.review}&rdquo;
-                </motion.p>
-
-                {/* Divider */}
-                <motion.div
-                  className="h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent mb-6"
-                  initial={{ scaleX: 0, originX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.3, duration: 0.6, ease: EASE }}
-                />
-
-                {/* Author */}
-                <motion.div
-                  className="flex items-center gap-4"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35, duration: 0.45, ease: 'easeOut' }}
-                >
-                  <div className="w-11 h-11 rounded-full bg-gold/12 border border-gold/30 flex items-center justify-center flex-shrink-0">
-                    <span className="font-display text-base font-600 text-gold leading-none">
-                      {t.initials}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-body font-600 text-cream text-sm leading-tight">{t.name}</p>
-                    <p className="font-body text-xs text-gold/65 mt-0.5">{t.location}</p>
-                  </div>
-                  {/* Counter badge */}
-                  <div className="ml-auto font-body text-xs text-white/20 tabular-nums">
-                    {String(current + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
-                  </div>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
+                  <motion.div
+                    animate={{
+                      width: i === current ? 20 : 5,
+                      backgroundColor:
+                        i === current ? '#C5A256' : 'rgba(197,162,86,0.22)',
+                    }}
+                    transition={{ duration: 0.25 }}
+                    className="h-1 rounded-full"
+                  />
+                </button>
+              ))}
+            </div>
+            {/* Progress bar */}
+            <div className="w-28 h-px bg-white/8 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gold rounded-full"
+                style={{ width: `${progress}%`, transition: 'none' }}
+              />
+            </div>
           </div>
 
           {/* Next */}
           <motion.button
             onClick={() => go(1)}
-            whileHover={{ scale: 1.1, backgroundColor: 'rgba(197,162,86,1)' }}
-            whileTap={{ scale: 0.92 }}
-            aria-label="Next review"
-            className="flex-shrink-0 w-11 h-11 rounded-full border border-gold/35 flex items-center justify-center text-gold transition-colors duration-300"
-            style={{ color: '#C5A256' }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Next"
+            className="w-9 h-9 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-navy-deep transition-colors duration-250"
           >
-            <ChevronRight size={20} strokeWidth={2} />
+            <ChevronRight size={16} strokeWidth={2.5} />
           </motion.button>
-        </SectionReveal>
-
-        {/* ── Progress bar + dots ───────────────────────────────── */}
-        <SectionReveal delay={0.25} from="up" className="mt-8 flex flex-col items-center gap-4">
-          {/* Thin progress bar */}
-          <div className="w-40 h-0.5 bg-white/10 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-gold to-gold-light rounded-full"
-              style={{ width: `${progress}%`, transition: 'none' }}
-            />
-          </div>
-
-          {/* Dots */}
-          <div className="flex items-center gap-2">
-            {TESTIMONIALS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => {
-                  setDirection(i > current ? 1 : -1);
-                  setCurrent(i);
-                }}
-                aria-label={`Go to review ${i + 1}`}
-                className="p-1 cursor-pointer"
-              >
-                <motion.div
-                  animate={{
-                    width: i === current ? 24 : 6,
-                    backgroundColor:
-                      i === current ? '#C5A256' : 'rgba(197,162,86,0.22)',
-                  }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
-                  className="h-1.5 rounded-full"
-                />
-              </button>
-            ))}
-          </div>
-        </SectionReveal>
+        </div>
       </div>
     </section>
   );
