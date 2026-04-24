@@ -5,6 +5,7 @@ import { PageHero } from '@/components/PageHero';
 import { SectionReveal, StaggerItem } from '@/components/SectionReveal';
 import { SectionHeader } from '@/components/SectionHeader';
 import { PartnerCTA } from '@/components/PartnerCTA';
+import { TestimonialsCarousel } from '@/components/TestimonialsCarousel';
 import { SectionGlow } from '@/components/SectionGlow';
 import { PhilosophyPillars } from '@/components/PhilosophyPillars';
 import { AnimatedStats } from '@/components/AnimatedStats';
@@ -389,6 +390,7 @@ export default function AboutPage() {
       </section>
 
       {/* 8 ─ PARTNER CTA */}
+      <TestimonialsCarousel />
       <PartnerCTA />
     </>
   );

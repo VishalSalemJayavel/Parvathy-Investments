@@ -6,6 +6,7 @@ import { SectionHeader } from '@/components/SectionHeader';
 import { InvestmentCarousel } from '@/components/InvestmentCarousel';
 import { WhoWeServeCards } from '@/components/WhoWeServeCards';
 import { PartnerCTA } from '@/components/PartnerCTA';
+import { TestimonialsCarousel } from '@/components/TestimonialsCarousel';
 import { LayeredIcon } from '@/components/LayeredIcon';
 import {
   INVESTMENT_CATEGORIES,
@@ -345,7 +346,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9 ─ PARTNER CTA */}
+      {/* 9 ─ TESTIMONIALS */}
+      <TestimonialsCarousel />
+
+      {/* 10 ─ PARTNER CTA */}
       <PartnerCTA />
     </>
   );

@@ -6,6 +6,7 @@ import { ContactForm } from '@/components/ContactForm';
 import { SectionGlow } from '@/components/SectionGlow';
 import { AnimatedPattern } from '@/components/AnimatedPattern';
 import { COMPANY } from '@/lib/constants';
+import { TestimonialsCarousel } from '@/components/TestimonialsCarousel';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -167,7 +168,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 3 ─ SIMPLE CLOSING STRIP (lighter alternative to full PartnerCTA) */}
+      {/* 3 ─ TESTIMONIALS */}
+      <TestimonialsCarousel />
+
+      {/* 4 ─ SIMPLE CLOSING STRIP (lighter alternative to full PartnerCTA) */}
       <section className="bg-navy-deep border-t border-white/5 relative overflow-hidden">
         <SectionGlow variant="dark" />
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col sm:flex-row items-center justify-between gap-6">

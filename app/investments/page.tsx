@@ -8,6 +8,7 @@ import { PageHero } from '@/components/PageHero';
 import { SectionReveal, StaggerItem } from '@/components/SectionReveal';
 import { SectionHeader } from '@/components/SectionHeader';
 import { PartnerCTA } from '@/components/PartnerCTA';
+import { TestimonialsCarousel } from '@/components/TestimonialsCarousel';
 import { SectionGlow } from '@/components/SectionGlow';
 import { AnimatedPattern } from '@/components/AnimatedPattern';
 import { INVESTMENT_HIGHLIGHTS } from '@/lib/constants';
@@ -373,6 +374,7 @@ export default function InvestmentsPage() {
       </section>
 
       {/* 6 ─ PARTNER CTA */}
+      <TestimonialsCarousel />
       <PartnerCTA />
     </>
   );

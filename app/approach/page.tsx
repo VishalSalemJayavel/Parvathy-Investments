@@ -4,6 +4,7 @@ import { PageHero } from '@/components/PageHero';
 import { SectionReveal, StaggerItem } from '@/components/SectionReveal';
 import { SectionHeader } from '@/components/SectionHeader';
 import { PartnerCTA } from '@/components/PartnerCTA';
+import { TestimonialsCarousel } from '@/components/TestimonialsCarousel';
 import { SectionGlow } from '@/components/SectionGlow';
 import { AnimatedPattern } from '@/components/AnimatedPattern';
 import { CommitmentCards } from '@/components/CommitmentCards';
@@ -389,6 +390,7 @@ export default function ApproachPage() {
       </section>
 
       {/* 6 ─ PARTNER CTA */}
+      <TestimonialsCarousel />
       <PartnerCTA />
     </>
   );
