@@ -9,68 +9,84 @@ import { SectionHeader } from './SectionHeader';
 /* ─── Data ───────────────────────────────────────────────────────── */
 const TESTIMONIALS = [
   {
-    name: 'James Mitchell',
-    location: 'New York, NY',
-    initials: 'JM',
+    name: 'Senthil',
+    location: 'Alpharetta, GA',
+    initials: 'SE',
     stars: 5,
     review:
-      'Their disciplined approach to capital deployment gave me confidence from day one. Transparency and structured communication set them apart from every other firm I have worked with.',
+      'Parvathy has been an exceptional partner in growing my portfolio. Their disciplined approach and complete transparency gave me confidence from the very first meeting. I have recommended them to several friends and family members without hesitation.',
   },
   {
-    name: 'Sarah Williams',
-    location: 'Austin, TX',
-    initials: 'SW',
+    name: 'Karthik',
+    location: 'San Jose, CA',
+    initials: 'KA',
     stars: 5,
     review:
-      'Parvathy genuinely treats your capital as a responsibility. Three years in and my portfolio is exactly where we planned it to be. That kind of consistency is rare.',
+      'Their EB-5 guidance was thorough and professional. Every step was clearly explained, and the team was responsive throughout the entire process. Three years in, my investment has performed exactly as projected.',
   },
   {
-    name: 'Robert Anderson',
-    location: 'Chicago, IL',
-    initials: 'RA',
+    name: 'Michael',
+    location: 'Nashville, TN',
+    initials: 'MI',
     stars: 5,
     review:
-      'Their EB-5 program guidance was exceptional. The team walked us through every step with complete transparency and professionalism. I felt informed and protected throughout.',
+      'I have worked with several investment firms over the years and Parvathy is in a different league. Their structured approach, honest reporting, and genuine care for investor outcomes make them the only firm I trust with long-term capital.',
   },
   {
-    name: 'Jennifer Thompson',
-    location: 'San Francisco, CA',
-    initials: 'JT',
+    name: 'Vijay',
+    location: 'Houston, TX',
+    initials: 'VI',
     stars: 5,
     review:
-      'Parvathy stands out for integrity and the quality of structured opportunities they provide. Their evaluation process is rigorous — exactly what I want guarding my capital.',
+      'What sets Parvathy apart is their integrity. They turned down a deal I was eager to pursue because the risk profile did not meet their standards. That judgment, prioritizing my long-term interest over a quick close, earned my complete trust.',
   },
   {
-    name: 'Michael Davis',
-    location: 'Dallas, TX',
-    initials: 'MD',
-    stars: 5,
+    name: 'Anand',
+    location: 'Raleigh, NC',
+    initials: 'AN',
+    stars: 4,
     review:
-      'The team declined an investment I was excited about — and they were completely right. That kind of disciplined judgment, prioritising long-term outcomes, earns real trust.',
+      'A solid and trustworthy firm. Communication could be slightly more frequent during mid-cycle periods, but the quality of deals sourced and the returns delivered have been consistently strong. I would work with them again.',
   },
   {
-    name: 'Karen Johnson',
-    location: 'Boston, MA',
-    initials: 'KJ',
+    name: 'Jennifer',
+    location: 'Denver, CO',
+    initials: 'JE',
     stars: 5,
     review:
-      'From the first conversation to ongoing updates, the professionalism has been consistent. My family office committed additional capital this year because results matched every promise.',
+      'Parvathy stands out for the rigor of their underwriting and the quality of structured opportunities they bring to investors. Their evaluation process is exactly what I want protecting my capital.',
   },
   {
-    name: 'David Carter',
-    location: 'Seattle, WA',
-    initials: 'DC',
+    name: 'Santhosh',
+    location: 'Edison, NJ',
+    initials: 'SA',
     stars: 5,
     review:
-      'Diversified exposure across real estate and secured credit has performed steadily through volatility. They communicate risk alongside opportunity — no sugarcoating, just honest analysis.',
+      'As an NRI investor navigating U.S. real estate structures for the first time, Parvathy made the entire process approachable and legally sound. I felt supported every step of the way and have since referred two colleagues.',
   },
   {
-    name: 'Linda Martinez',
-    location: 'Miami, FL',
-    initials: 'LM',
+    name: 'Suresh',
+    location: 'Frisco, TX',
+    initials: 'SU',
+    stars: 4,
+    review:
+      'Strong returns and a professional team. The onboarding process took slightly longer than expected, but once we were up and running the experience has been excellent. My portfolio has grown steadily and reporting is clear.',
+  },
+  {
+    name: 'Amanda',
+    location: 'Phoenix, AZ',
+    initials: 'AM',
     stars: 5,
     review:
-      'As an international investor navigating U.S. structures for the first time, they made the process approachable, legally sound, and ultimately very rewarding. I have since referred two colleagues.',
+      'Parvathy came highly recommended by a colleague and they exceeded every expectation. The team is knowledgeable, accessible, and always straightforward about risks. My portfolio has grown steadily and I have complete peace of mind.',
+  },
+  {
+    name: 'Mahendran',
+    location: 'Fremont, CA',
+    initials: 'MA',
+    stars: 5,
+    review:
+      'From the first conversation to quarterly updates, the level of professionalism has been remarkable. My family office committed additional capital this year because every commitment Parvathy made was matched by results.',
   },
 ];
 
