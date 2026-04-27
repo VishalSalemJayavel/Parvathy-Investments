@@ -9,9 +9,9 @@ import { SectionHeader } from './SectionHeader';
 /* ─── Data ───────────────────────────────────────────────────────── */
 const TESTIMONIALS = [
   {
-    name: 'Senthil',
+    name: 'Samir',
     location: 'Alpharetta, GA',
-    initials: 'SE',
+    initials: 'SA',
     stars: 5,
     review:
       'Parvathy has been an exceptional partner in growing my portfolio. Their disciplined approach and complete transparency gave me confidence from the very first meeting. I have recommended them to several friends and family members without hesitation.',
@@ -25,9 +25,9 @@ const TESTIMONIALS = [
       'Their EB-5 guidance was thorough and professional. Every step was clearly explained, and the team was responsive throughout the entire process. Three years in, my investment has performed exactly as projected.',
   },
   {
-    name: 'Dinesh',
+    name: 'Ajay',
     location: 'Schaumburg, IL',
-    initials: 'DI',
+    initials: 'AJ',
     stars: 4,
     review:
       'Overall a very positive experience. The deal flow is strong and the team is clearly experienced. I would appreciate slightly more granular reporting on individual assets, but returns have been consistent and the communication is professional.',
@@ -49,12 +49,12 @@ const TESTIMONIALS = [
       'What sets Parvathy apart is their integrity. They turned down a deal I was eager to pursue because the risk profile did not meet their standards. That judgment, prioritizing my long-term interest over a quick close, earned my complete trust.',
   },
   {
-    name: 'Anand',
-    location: 'Raleigh, NC',
-    initials: 'AN',
-    stars: 4,
+    name: 'Santhosh',
+    location: 'Edison, NJ',
+    initials: 'SA',
+    stars: 5,
     review:
-      'A solid and trustworthy firm. Communication could be slightly more frequent during mid-cycle periods, but the quality of deals sourced and the returns delivered have been consistently strong. I would work with them again.',
+      'As an NRI investor navigating U.S. real estate structures for the first time, Parvathy made the entire process approachable and legally sound. I felt supported every step of the way and have since referred two colleagues.',
   },
   {
     name: 'Jennifer',
@@ -65,14 +65,6 @@ const TESTIMONIALS = [
       'Parvathy stands out for the rigor of their underwriting and the quality of structured opportunities they bring to investors. Their evaluation process is exactly what I want protecting my capital.',
   },
   {
-    name: 'Santhosh',
-    location: 'Edison, NJ',
-    initials: 'SA',
-    stars: 5,
-    review:
-      'As an NRI investor navigating U.S. real estate structures for the first time, Parvathy made the entire process approachable and legally sound. I felt supported every step of the way and have since referred two colleagues.',
-  },
-  {
     name: 'Suresh',
     location: 'Frisco, TX',
     initials: 'SU',
@@ -81,31 +73,7 @@ const TESTIMONIALS = [
       'Strong returns and a professional team. The onboarding process took slightly longer than expected, but once we were up and running the experience has been excellent. My portfolio has grown steadily and reporting is clear.',
   },
   {
-    name: 'Robert',
-    location: 'Charlotte, NC',
-    initials: 'RO',
-    stars: 4,
-    review:
-      'Parvathy delivers what they promise. I came in with high expectations based on referrals and they were largely met. The onboarding could be streamlined, but the investment performance and the team\'s integrity have been solid throughout.',
-  },
-  {
-    name: 'Amanda',
-    location: 'Phoenix, AZ',
-    initials: 'AM',
-    stars: 5,
-    review:
-      'Parvathy came highly recommended by a colleague and they exceeded every expectation. The team is knowledgeable, accessible, and always straightforward about risks. My portfolio has grown steadily and I have complete peace of mind.',
-  },
-  {
-    name: 'Priya',
-    location: 'Sugar Land, TX',
-    initials: 'PR',
-    stars: 4,
-    review:
-      'A trustworthy firm with a genuine focus on investor protection. The structured credit opportunities have performed well for me. Response times during the due diligence phase could be faster, but the end results have been worth the patience.',
-  },
-  {
-    name: 'Mahendran',
+    name: 'Mahen',
     location: 'Fremont, CA',
     initials: 'MA',
     stars: 5,
