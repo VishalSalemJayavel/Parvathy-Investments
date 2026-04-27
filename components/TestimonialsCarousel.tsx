@@ -25,6 +25,14 @@ const TESTIMONIALS = [
       'Their EB-5 guidance was thorough and professional. Every step was clearly explained, and the team was responsive throughout the entire process. Three years in, my investment has performed exactly as projected.',
   },
   {
+    name: 'Dinesh',
+    location: 'Schaumburg, IL',
+    initials: 'DI',
+    stars: 4,
+    review:
+      'Overall a very positive experience. The deal flow is strong and the team is clearly experienced. I would appreciate slightly more granular reporting on individual assets, but returns have been consistent and the communication is professional.',
+  },
+  {
     name: 'Michael',
     location: 'Nashville, TN',
     initials: 'MI',
@@ -73,12 +81,28 @@ const TESTIMONIALS = [
       'Strong returns and a professional team. The onboarding process took slightly longer than expected, but once we were up and running the experience has been excellent. My portfolio has grown steadily and reporting is clear.',
   },
   {
+    name: 'Robert',
+    location: 'Charlotte, NC',
+    initials: 'RO',
+    stars: 4,
+    review:
+      'Parvathy delivers what they promise. I came in with high expectations based on referrals and they were largely met. The onboarding could be streamlined, but the investment performance and the team\'s integrity have been solid throughout.',
+  },
+  {
     name: 'Amanda',
     location: 'Phoenix, AZ',
     initials: 'AM',
     stars: 5,
     review:
       'Parvathy came highly recommended by a colleague and they exceeded every expectation. The team is knowledgeable, accessible, and always straightforward about risks. My portfolio has grown steadily and I have complete peace of mind.',
+  },
+  {
+    name: 'Priya',
+    location: 'Sugar Land, TX',
+    initials: 'PR',
+    stars: 4,
+    review:
+      'A trustworthy firm with a genuine focus on investor protection. The structured credit opportunities have performed well for me. Response times during the due diligence phase could be faster, but the end results have been worth the patience.',
   },
   {
     name: 'Mahendran',
