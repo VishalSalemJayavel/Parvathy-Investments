@@ -9,39 +9,39 @@ import { SectionHeader } from './SectionHeader';
 /* ─── Data ───────────────────────────────────────────────────────── */
 const TESTIMONIALS = [
   {
-    name: 'Ajay',
-    location: 'Schaumburg, IL',
-    initials: 'AJ',
+    name: 'Varun',
+    location: 'Seattle, WA',
+    initials: 'VT',
     stars: 4,
     review:
-      'Overall a very positive experience. The deal flow is strong and the team is clearly experienced. I would appreciate slightly more granular reporting on individual assets, but returns have been consistent and the communication is professional.',
+      'I have been investing with Parvathy Investment Company and the experience has been excellent from start to finish. They are coordinating and genuinely helpful,  every question I had was answered promptly and clearly. I always felt informed and never had to chase anyone for updates. Most importantly, my returns were delivered on time, exactly as expected. Very satisfied and would recommend them to anyone looking for a reliable investment partner.',
   },
   {
-    name: 'Karthik',
+    name: 'Karthik Nair',
     location: 'San Jose, CA',
-    initials: 'KA',
+    initials: 'KN',
     stars: 5,
     review:
       'Their EB-5 guidance was thorough and professional. Every step was clearly explained, and the team was responsive throughout the entire process. Three years in, my investment has performed exactly as projected.',
   },
   {
-    name: 'Mahen',
+    name: 'Aakash Mehta',
     location: 'Fremont, CA',
-    initials: 'MA',
+    initials: 'AM',
     stars: 5,
     review:
       'From the first conversation to quarterly updates, the level of professionalism has been remarkable. My family office committed additional capital this year because every commitment Parvathy made was matched by results.',
   },
   {
-    name: 'Santhosh',
+    name: 'Santhosh Kumar',
     location: 'Edison, NJ',
-    initials: 'SA',
+    initials: 'SK',
     stars: 5,
     review:
       'As an NRI investor navigating U.S. real estate structures for the first time, Parvathy made the entire process approachable and legally sound. I felt supported every step of the way and have since referred two colleagues.',
   },
   {
-    name: 'Samir',
+    name: 'Suresh',
     location: 'Alpharetta, GA',
     initials: 'SA',
     stars: 5,
